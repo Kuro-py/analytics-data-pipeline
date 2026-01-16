@@ -32,7 +32,11 @@ This repository contains my solution to the Data Engineering Technical Assessmen
 - GLiNER (open-source LLM for entity extraction)
 - transformers (zero-shot classification)
 
+
 ## How to Run Locally
+
+Install libraries for Task 1 & 3
+pip install pandas sqlalchemy openpyxl psycopg2-binary dbt-postgres streamlit
 
 ### 1. Start PostgreSQL
 Ensure Docker Desktop is running, then from the project root directory:
@@ -60,6 +64,7 @@ dbt test
 From the project root directory, run:
 
 ```
+cd ..
 streamlit run backend/dashboard.py
 ```
 
