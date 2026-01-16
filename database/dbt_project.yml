@@ -1,0 +1,15 @@
+name: warehouse_dbt
+version: "1.0"
+profile: customer_warehouse
+
+model-paths: ["models"]
+target-path: "target"
+
+models:
+  warehouse_dbt:
+    stg:
+      +schema: stg
+      +materialized: view
+    dw:
+      +schema: dw
+      +materialized: table

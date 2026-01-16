@@ -1,0 +1,7 @@
+sources:
+  - name: landing
+    schema: landing
+    tables:
+      - name: user_activity_source_a_web
+      - name: user_activity_source_b_mobile
+      - name: user_activity_source_c_marketin

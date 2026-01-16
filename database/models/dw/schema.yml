@@ -1,0 +1,48 @@
+models:
+  - name: fct_user_activity
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_user')
+              field: user_sk
+
+      - name: source_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_source')
+              field: source_id
+
+      - name: event_timestamp
+        tests: [not_null]
+
+      - name: event_date
+        tests: [not_null]
+
+      - name: event_name
+        tests: [not_null]
+
+  - name: dim_user
+    columns:
+      - name: user_sk
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null, unique]
+
+  - name: dim_source
+    columns:
+      - name: source_id
+        tests: [not_null, unique]
+      - name: source_name
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              values: ['website', 'mobile', 'marketing']
